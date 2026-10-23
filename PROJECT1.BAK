@@ -1,0 +1,82 @@
+#include<stdio.h>
+int main()
+{
+int pin = 2802;
+int enteredpin;
+int choice;
+float balance = 100000;
+float amount;
+printf("\n======= WELCOME TO ALL =======\n");
+
+printf("Enter Your Pin : ");
+scanf("%d",&enteredpin);
+
+if(enteredpin != pin)
+{
+printf("\nTHE PIN YOU ENTERED IN INCORRECT\n");
+return 0;
+}
+else
+{
+printf("\nLogin Successfully!!!\n");
+}
+do
+{
+printf("\n====ATM MENU====\n");
+printf("1. CHECK BALANCE\n");
+printf("2. DEPOSIT MONEY\n");
+printf("3. WITHDRAW MONEY\n");
+printf("4. EXIT\n");
+
+printf("\nENTER YOUR CHOICE : ");
+scanf("%d",&choice);
+
+switch(choice)
+{
+case 1:
+printf("\nYOUR CURRENT BALANCE : Rs. %2f\n",balance);
+break ;
+case 2:
+printf("\nENTER DEPOSIT AMOUNT : Rs. ");
+scanf("%f",&amount);
+if(amount>0)
+{
+balance+=amount;
+printf("\nMONEY DEPOSITED SUCCESSFULLY!!!\n");
+printf("\nNEW BALANCE : Rs. %2f\n",balance);
+}
+else
+{
+printf("\nINVALID AMOUNT!!!\n");
+}
+break;
+
+case 3:
+printf("\nENTER WITHDRAWAL AMOUNT : ");
+scanf("%f",&amount);
+
+if(amount<=0)
+{
+printf("\nINVALID AMOUNT!!!\n");
+}
+else if (amount<=balance)
+{
+balance = balance - amount;
+printf("\nPLEASE COLLECT YOUR CASH \n");
+printf("\nREMAINING BALANCE : Rs. %2f\n",balance);
+}
+else
+{
+printf("\nINSUFFICIENT BALANCE!!!\n");
+}
+break;
+case 4:
+printf("\nTHANKS FOR COMING \nVISIT AGAIN");
+break ;
+default :
+printf("\nINVALID CHOICE!!!\n");
+}
+}
+while (choice != 4);
+return 0;
+}
